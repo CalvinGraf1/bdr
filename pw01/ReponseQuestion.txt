@@ -1,0 +1,11 @@
+a) 	C1 avec une limite à la date
+	C2 et C3 avec les cardinalités
+	C4 n'est pas géré par la SGBD
+
+b) Pas toute, mais on peut mettre en place la C2 et la C3 avec les cardinalités en mettant un maximum à la liaison.
+
+c) Oui dans la table associative "emprunte" et les retards en comparant la date actuelle avec la date de l'emprunt.
+
+d) Suppression automatique de la donnée dans la table associatif correspondante lorsqu'un livre est rendu ou qu'une réservation est annulée.
+
+- Partie 2 -

@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="15.1">
+  <zoom_level>8</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>96</x>
+      <y>248</y>
+      <w>96</w>
+      <h>96</h>
+    </coordinates>
+    <panel_attributes>_Livre_
+--
+numero
+titre
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>424</x>
+      <y>216</y>
+      <w>168</w>
+      <h>96</h>
+    </coordinates>
+    <panel_attributes>_Adherent_
+--
+code
+nom
+Prenom
+mail
+telephone [0..n]
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>240</x>
+      <y>416</y>
+      <w>96</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>_Auteur_
+--
+nom
+prenom</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>0</x>
+      <y>424</y>
+      <w>96</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>_Genre_
+--
+Type</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>88</x>
+      <y>496</y>
+      <w>96</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>_Editeur_
+--
+Nom</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>616</x>
+      <y>368</y>
+      <w>96</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>_Localite_
+--
+Ville
+NPA</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>0</x>
+      <y>280</y>
+      <w>112</w>
+      <h>160</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1..1
+m2=0..n
+A_un_genre V</panel_attributes>
+    <additional_attributes>20.0;180.0;10.0;40.0;120.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>184</x>
+      <y>312</y>
+      <w>152</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1..n
+m2=0..n
+A_un_auteur V</panel_attributes>
+    <additional_attributes>130.0;130.0;60.0;50.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>96</x>
+      <y>336</y>
+      <w>96</w>
+      <h>176</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1..1
+m2=0..n
+Edite_par V</panel_attributes>
+    <additional_attributes>50.0;200.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>584</x>
+      <y>256</y>
+      <w>112</w>
+      <h>128</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1..1
+m2=0..n
+habite V</panel_attributes>
+    <additional_attributes>100.0;140.0;60.0;50.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>656</x>
+      <y>200</y>
+      <w>96</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>_habite_
+--
+Nom_rue
+numero_rue</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>616</x>
+      <y>240</y>
+      <w>56</w>
+      <h>64</h>
+    </coordinates>
+    <panel_attributes>lt=-
+</panel_attributes>
+    <additional_attributes>10.0;60.0;50.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>184</x>
+      <y>256</y>
+      <w>256</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=0..1
+m2=0..3
+emprunte &lt;</panel_attributes>
+    <additional_attributes>300.0;10.0;10.0;40.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>248</x>
+      <y>152</y>
+      <w>96</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>_emprunte_
+--
+Date</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>240</x>
+      <y>184</y>
+      <w>48</w>
+      <h>112</h>
+    </coordinates>
+    <panel_attributes>lt=-
+</panel_attributes>
+    <additional_attributes>40.0;10.0;10.0;120.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>408</x>
+      <y>376</y>
+      <w>96</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>_reserve_
+--
+Date</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>184</x>
+      <y>280</y>
+      <w>256</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=0..n
+m2=0..5
+reserve &lt;</panel_attributes>
+    <additional_attributes>300.0;10.0;10.0;40.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>344</x>
+      <y>288</y>
+      <w>128</w>
+      <h>104</h>
+    </coordinates>
+    <panel_attributes>lt=-
+</panel_attributes>
+    <additional_attributes>10.0;10.0;140.0;110.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>448</x>
+      <y>88</y>
+      <w>96</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>_historique_
+--
+Date</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>464</x>
+      <y>120</y>
+      <w>64</w>
+      <h>88</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=0..n
+m2=1..1
+a ^</panel_attributes>
+    <additional_attributes>10.0;90.0;40.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>416</x>
+      <y>192</y>
+      <w>80</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>livre
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>96</x>
+      <y>128</y>
+      <w>96</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>_Exemplaire_
+--
+_ISBN_
+Endomage
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>

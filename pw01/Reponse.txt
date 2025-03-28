@@ -1,0 +1,8 @@
+- Ex 2 -
+
+a) B, D
+b) B, C
+c) A, C, D
+d) B, C
+e) A, C
+f) A

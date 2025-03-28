@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intelli'Fridge</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        h1 {
+            margin: 0;
+        }
+
+        .header-buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        button {
+            padding: 8px 16px;
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .recipes-section {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #f4f4f4;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            overflow: auto; /* Added this line for scrollability */
+            max-height: 400px; /* Set a max height for the scrollable area */
+            min-height: 400px; /* Set a max height for the scrollable area */
+        }
+
+        .filter-bar {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #f4f4f4;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            overflow: auto; /* Added this line for scrollability */
+        }
+
+        .recipe-singular {
+            display: flex;
+            justify-content: space-between;
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 10px;
+        }
+
+        .recipe-singular div {
+            flex: 1;
+        }
+
+        h2{
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+
+
+        .filter-bar {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        #titre {
+            color: white;
+        }
+
+        #titre {
+            color: white;
+        }
+
+        .filter-element {
+            flex: 1;
+            margin-right: 10px; /* Ajoute une marge entre les éléments */
+        }
+
+        #submitButton{
+            text-align: right;
+        }
+
+    </style>
+</head>
+
+<body>
+<header>
+    <h1><a id="titre" href="listesRecettes.html">Intelli'Fridge</a></h1>
+    <div class="header-buttons">
+        <a href="./parametres.html">
+            <button>Profil</button>
+        </a>
+        <a href="./login.html">
+            <button>Déconnexion</button>
+        </a>
+    </div>
+</header>
+<h2>Recettes</h2>
+<div class="filter-bar">
+    <div class="filter-element">
+        <label for="liste-types">Type :</label>
+        <select id="liste-types"></select>
+        </select>
+    </div>
+
+    <div class="filter-element">
+        <label for="choixRegime">Regime :</label>
+        <select id="choixRegime">
+        </select>
+    </div>
+
+    <div class="filter-element">
+        <label for="rangeInput">Calories maximum :</label>
+        <span id="selectedValue">0</span>
+        <input type="range" id="rangeInput" name="range" min="0" max="2000" value="0" step="1" oninput="updateValue()">
+    </div>
+
+    <div class="filter-element" id="submitButton">
+        <button type="submit">Valider</button>
+    </div>
+</div>
+
+
+<div class="recipes-section" id="recipesContainer">
+    <div class="recipe-singular">
+        <div>Nom de la recette</div>
+        <div></div>
+        <div>Type</div>
+    </div>
+</div>
+
+<script>
+    function handleButtonClick(buttonName) {
+        alert('You clicked ' + buttonName);
+        // Add your button click logic here
+    }
+
+    window.onload = function() {
+        fetchTypes();
+        fetchRegimes();
+        fetchRecette();
+    };
+
+    function updateValue() {
+        var rangeInput = document.getElementById("rangeInput");
+        var selectedValue = document.getElementById("selectedValue");
+        selectedValue.textContent = rangeInput.value;
+    }
+
+    function fetchRecette() {
+        // Perform a GET request to /recette
+        fetch('/recette', { credentials: 'include' })
+            .then(response => response.json())
+            .then(data => displayRecette(data))
+            .catch(error => console.error('Error:', error));
+    }
+
+    function displayRecette(recettes) {
+        var recipesContainer = document.getElementById('recipesContainer');
+
+        // Parcourez les données des recettes et créez des éléments pour chaque recette
+        recettes.forEach(function (recette) {
+            var recipeDiv = document.createElement('div');
+            recipeDiv.classList.add('recipe-singular');
+
+            var nomRecetteDiv = document.createElement('div');
+            nomRecetteDiv.innerHTML = `<a href="recette.html?recette=${encodeURIComponent(recette.rnom)}">${recette.rnom}</a>`;
+
+            var blankDiv = document.createElement('div');
+
+            var typeDiv = document.createElement('div');
+            typeDiv.innerHTML = `${recette.type_recette}`;
+
+
+
+
+            recipeDiv.appendChild(nomRecetteDiv);
+            recipeDiv.appendChild(blankDiv);
+            recipeDiv.appendChild(typeDiv);
+
+            recipesContainer.appendChild(recipeDiv);
+        });
+    }
+
+    function fetchRegimes() {
+        // Perform a GET request to /regimes
+        fetch('/regime', { credentials: 'include' })
+            .then(response => response.json())
+            .then(data => displayRegime(data))
+            .catch(error => console.error('Error:', error));
+    }
+
+    function displayRegime(regimes) {
+        var select = '<select>';
+        regimes.forEach(function(regime) {
+            select += `<option value="${regime.regnom}">${regime.regnom}</option>`;
+        });
+        select += '</select>';
+
+        document.getElementById('choixRegime').innerHTML = select;
+    }
+
+    function fetchTypes() {
+        // Perform a GET request to /types
+        fetch('/type', { credentials: 'include' })
+            .then(response => response.json())
+            .then(data => displayType(data))
+            .catch(error => console.error('Error:', error));
+    }
+
+    function displayType(types) {
+        var select = '<select>';
+        types.forEach(function(type) {
+            select += `<option value="${type.tnom}">${type.tnom}</option>`;
+        });
+        select += '</select>';
+        document.getElementById('liste-types').innerHTML = select;
+    }
+
+</script>
+</body>
+</html>

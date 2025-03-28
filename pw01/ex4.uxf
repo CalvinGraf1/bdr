@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="15.1">
+  <zoom_level>8</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>792</x>
+      <y>264</y>
+      <w>112</w>
+      <h>96</h>
+    </coordinates>
+    <panel_attributes>Locataire
+--
+Nom
+Prenom [1..*]
+date_de_naissance
+Numero_tel
+Nbr_occupants[1..*]
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>560</x>
+      <y>272</y>
+      <w>112</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>Logement
+--
+Superficie
+Nbr_piece
+Loyer
+Date_construction
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>200</x>
+      <y>272</y>
+      <w>72</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>Commune
+--
+_NPA_
+Nom
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>560</x>
+      <y>448</y>
+      <w>104</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>Forfait
+--
+Somme_forfaitaire</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>456</x>
+      <y>288</y>
+      <w>120</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=0..*
+&lt; Se situe à</panel_attributes>
+    <additional_attributes>10.0;20.0;130.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>664</x>
+      <y>296</y>
+      <w>144</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=1
+&lt; Habite dans</panel_attributes>
+    <additional_attributes>10.0;20.0;160.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>384</x>
+      <y>288</y>
+      <w>80</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>Emplacement
+-
+Numero</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>264</x>
+      <y>288</y>
+      <w>136</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=0..*
+Possède &gt;
+</panel_attributes>
+    <additional_attributes>10.0;20.0;150.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>392</x>
+      <y>128</y>
+      <w>72</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>Rue
+--
+Nom
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>416</x>
+      <y>160</y>
+      <w>96</w>
+      <h>144</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=0..*
+m2=1
+Se trouve à v
+
+</panel_attributes>
+    <additional_attributes>10.0;160.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>560</x>
+      <y>352</y>
+      <w>96</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>Type_Logement
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>600</x>
+      <y>368</y>
+      <w>88</w>
+      <h>96</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=1
+Doit payer v</panel_attributes>
+    <additional_attributes>10.0;100.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>680</x>
+      <y>232</y>
+      <w>24</w>
+      <h>96</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;100.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>648</x>
+      <y>168</y>
+      <w>80</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>Habite_dans
+--
+Nom
+Date_debut
+Date_fin [0..1]
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>744</x>
+      <y>176</y>
+      <w>136</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>C.I: Si pas de date de fin, 
+cela indique le locataire 
+actuel
+bg=yellow</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>
